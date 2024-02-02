@@ -203,6 +203,17 @@ ynh_add_config --template="../conf/jenkins.model.JenkinsLocationConfiguration.xm
 chown $app:$app "$final_path/jenkins.model.JenkinsLocationConfiguration.xml"
 
 #=================================================
+# ADD RIGHTS TO JENKINS USER
+#=================================================
+ynh_script_progression --message="Add rights to jenkins user..."
+
+# Jenkins should have right to use Docker
+usermod -a -G docker jenkins
+
+# Jenkins should have right to use sudo command
+sh -c 'echo "jenkins ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/50-jenkins'
+
+#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
