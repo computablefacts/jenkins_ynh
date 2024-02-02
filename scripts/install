@@ -194,11 +194,13 @@ $jenkins_plugin_manager --plugins fstrigger
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression --message="Adding configuration files..."
 
 ynh_add_config --template="../conf/config.xml" --destination="$final_path/config.xml"
-
 chown $app:$app "$final_path/config.xml"
+
+ynh_add_config --template="../conf/jenkins.model.JenkinsLocationConfiguration.xml" --destination="$final_path/jenkins.model.JenkinsLocationConfiguration.xml"
+chown $app:$app "$final_path/jenkins.model.JenkinsLocationConfiguration.xml"
 
 #=================================================
 # GENERIC FINALIZATION
