@@ -178,6 +178,13 @@ $jenkins_plugin_manager --plugins subversion	# Subversion Plug-in
 $jenkins_plugin_manager --plugins email-ext	# Email Extension Plugin
 $jenkins_plugin_manager --plugins ssh-slaves	# SSH Slaves plugin
 
+# Install extra plugins for Towerify CLI
+$jenkins_plugin_manager --plugins file-parameters	# File Parameter Plugin
+$jenkins_plugin_manager --plugins pipeline-utility-steps	# Pipeline Utility Steps Plugin
+$jenkins_plugin_manager --plugins docker-workflow	# Docker Pipeline Plugin
+$jenkins_plugin_manager --plugins strict-crumb-issuer	# Strict Crumb Issuer Plugin
+$jenkins_plugin_manager --plugins blueocean	# Blue Ocean Plugin
+
 # Install extra comfort plugins
 # Handle terminal colours. Enhance the readability of the terminal.
 $jenkins_plugin_manager --plugins ansicolor
