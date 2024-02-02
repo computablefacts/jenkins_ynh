@@ -46,6 +46,14 @@
 	<primaryView>all</primaryView>
 	<slaveAgentPort>0</slaveAgentPort>
 	<label></label>
+  <crumbIssuer class="org.jenkinsci.plugins.strictcrumbissuer.StrictCrumbIssuer" plugin="strict-crumb-issuer@2.1.1">
+    <checkClientIP>false</checkClientIP>
+    <checkSameSource>false</checkSameSource>
+    <checkOnlyLocalPath>false</checkOnlyLocalPath>
+    <checkSessionMatch>false</checkSessionMatch>
+    <xorMasking>true</xorMasking>
+    <hoursValid>2</hoursValid>
+  </crumbIssuer>
 	<nodeProperties/>
 	<globalNodeProperties/>
 </hudson>
