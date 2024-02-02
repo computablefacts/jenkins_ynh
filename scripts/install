@@ -209,6 +209,7 @@ ynh_script_progression --message="Add rights to jenkins user..."
 
 # Jenkins should have right to use Docker
 usermod -a -G docker jenkins
+systemctl restart docker.service
 
 # Jenkins should have right to use sudo command
 sh -c 'echo "jenkins ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/50-jenkins'
