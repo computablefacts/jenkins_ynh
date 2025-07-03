@@ -1,0 +1,94 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "jenkins"
+name = "Jenkins"
+description.en = "Extendable continuous integration server"
+description.fr = "Serveur d'intégration continue extensible"
+
+version = "2.517~ynh1"
+
+maintainers = ["yalh76"]
+
+[upstream]
+license = "MIT"
+website = "https://jenkins.io"
+userdoc = "https://www.jenkins.io/doc/book/"
+code = "https://github.com/jenkinsci/jenkins"
+cpe = "cpe:2.3:a:cloudbees:jenkins"
+
+fund = "https://www.jenkins.io/donate"
+
+[integration]
+yunohost = ">= 11.2.30"
+helpers_version = "2.1"
+architectures = "all"
+multi_instance = false
+
+ldap = true
+
+sso = false
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/jenkins"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+    [resources.sources]
+
+    [resources.sources.main]
+    url = "https://github.com/jenkinsci/jenkins/releases/download/jenkins-2.517/jenkins_2.517_all.deb"
+    sha256 = "a2b40965f78be323ac908f8802b1cfa9af722c84501b1be05549a3a2f2213587"
+    format = "whatever"
+    extract = false
+    rename = "jenkins.deb"
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.asset = "^jenkins_(.*)_all.deb$"
+    autoupdate.version_regex = "^jenkins-(.*)$"
+    autoupdate.needs_manual_tweaks = true
+
+    [resources.sources.jenkins-plugin-manager]
+    url = "https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.13.2/jenkins-plugin-manager-2.13.2.jar"
+    sha256 = "98cdd261c64a4f51fbbf161287be77c9dbd0acb0c58b1916fdbc9dce03b47f9c"
+    format = "whatever"
+    extract = false
+    rename = "jenkins-plugin-manager.jar"
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.upstream = "https://github.com/jenkinsci/plugin-installation-manager-tool"
+    autoupdate.asset = "^jenkins-plugin-manager-(.*).jar$"
+
+    [resources.system_user]
+    home = "/var/lib/jenkins"
+
+    [resources.install_dir]
+    dir = "/var/lib/jenkins"
+
+    [resources.permissions]
+    main.url = "/"
+    github_webhook.url = "/github-webhook"
+    github_webhook.allowed = "visitors"
+    github_webhook.protected = false
+    github_webhook.show_tile = false
+
+    [resources.ports]
+    main.default = 8095
+
+    [resources.apt]
+    packages = [
+        "openjdk-17-jdk\\|openjdk-21-jdk",
+        "daemon",
+        "net-tools"
+    ]
