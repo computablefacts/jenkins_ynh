@@ -7,7 +7,7 @@ name = "Jenkins"
 description.en = "Extendable continuous integration server"
 description.fr = "Serveur d'intégration continue extensible"
 
-version = "2.517~ynh1"
+version = "2.517~ynh2"
 
 maintainers = ["yalh76"]
 
