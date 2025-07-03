@@ -98,11 +98,11 @@ jenkins_plugin_manager=(
 "${jenkins_plugin_manager[@]}" --plugins ssh-slaves	# SSH Slaves plugin
 
 # Install extra plugins for Towerify CLI
-$jenkins_plugin_manager --plugins file-parameters	# File Parameter Plugin
-$jenkins_plugin_manager --plugins pipeline-utility-steps	# Pipeline Utility Steps
-$jenkins_plugin_manager --plugins docker-workflow	# Docker Pipeline
-$jenkins_plugin_manager --plugins strict-crumb-issuer	# Strict Crumb Issuer Plugin
-$jenkins_plugin_manager --plugins blueocean	# Blue Ocean
+"${jenkins_plugin_manager[@]}" --plugins file-parameters	# File Parameter Plugin
+"${jenkins_plugin_manager[@]}" --plugins pipeline-utility-steps	# Pipeline Utility Steps
+"${jenkins_plugin_manager[@]}" --plugins docker-workflow	# Docker Pipeline
+"${jenkins_plugin_manager[@]}" --plugins strict-crumb-issuer	# Strict Crumb Issuer Plugin
+"${jenkins_plugin_manager[@]}" --plugins blueocean	# Blue Ocean
 
 # Install extra comfort plugins
 # Handle terminal colours. Enhance the readability of the terminal.
