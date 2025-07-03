@@ -113,7 +113,6 @@ jenkins_plugin_manager=(
 ynh_safe_rm "$install_dir/jenkins-plugin-manager.jar"
 
 #=================================================
-<<<<<<< HEAD
 # ADD CONFIGURATION FILES
 #=================================================
 ynh_script_progression --message="Adding Jenkins location configuration file..."
